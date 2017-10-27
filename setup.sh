@@ -2,6 +2,16 @@
 export P8BASEDIR=/cvmfs/hep.pnnl.gov/project8
 export P8DEPBASEDIR=${P8BASEDIR}/dependencies/${P8DEPBUILD}
 
+# in the real CVMFS system, gcc is installed in the externals directory
+# in the docker system, gcc is installed via yum
+export GCCBASEDIR=/cvmfs/hep.pnnl.gov/externals/
+export PATH=${GCCBASEDIR}/bin:${PATH}
+export INCLUDE_PATH=${GCCBASEDIR}/include:${INCLUDE_PATH}
+export LIBRARY_PATH=${GCCBASEDIR}/lib:${LIBRARY_PATH}
+export LIBRARY_PATH=${GCCBASEDIR}/lib64:${LIBRARY_PATH}
+export LD_LIBRARY_PATH=${GCCBASEDIR}/lib:${LIBRARY_PATH}
+export LD_LIBRARY_PATH=${GCCBASEDIR}/lib64:${LIBRARY_PATH}
+
 export PATH=${P8DEPBASEDIR}/bin:${PATH}
 export INCLUDE_PATH=${P8DEPBASEDIR}/include:${INCLUDE_PATH}
 export LIBRARY_PATH=${P8DEPBASEDIR}/lib:${LIBRARY_PATH}
