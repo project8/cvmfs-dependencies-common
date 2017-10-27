@@ -1,5 +1,12 @@
 # Project 8 CVMFS Dependencies
 
+This repository can be used in two ways:
+
+1. To install on the actual CVMFS system, use the `run-cvmfs-install.sh` script
+1. To use the docker mockup CVMFS system, use the Dockerfile
+
+When updating the dependencies build on GitHub, please make sure that both `run-cvmfs-install.sh` and `Dockerfile` get updated.  When a new official build is ready, tag it with the build name (the same as the build directory)
+
 ## Information
 
 This repository provides the basic dependencies for Project 8 software installations on the CVMFS system used on the PNNL HEP cluster.
@@ -30,7 +37,15 @@ Project 8 software is installed in the `/cvmfs/hep.pnnl.gov/project8` directory.
    . . .
 ```
 
-## Updating a dependency
+## Installing on the actual CVMFS system
+
+1. Clone the `cmvfs-dependencies` repo
+1. Make sure the dependency build version in `run-cvmfs-install.sh` (variable `P8DEPBUILD`) is set correctly
+1. Execute `run-cvmfs-install.sh`
+
+## Using the Docker mockup of the CVMFS system
+
+### Updating a dependency
 
 Your situation: There's a new version of a dependency (e.g. boost) out that we need to use for one of our packages.  Here's how to update this image with the new dependency information and rebuild the container.
 
