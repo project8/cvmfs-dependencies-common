@@ -11,7 +11,7 @@ When updating the dependencies build on GitHub, please make sure that both `run-
 
 This repository provides the basic dependencies for Project 8 software installations on the CVMFS system used on the PNNL HEP cluster.
 
-It's based on the PNNL HEP osg-comput-stable image, which is based on CentOS 6.7 (as of this writing).
+It's based on the PNNL HEP osg-compute-stable image (https://hub.docker.com/r/pnnlhep/osg-compute-stable), which is based on CentOS 6.7 (as of this writing).
 
 Project 8 software is installed in the `/cvmfs/hep.pnnl.gov/project8` directory.  From there, installed dependencies go in the `dependencies` subdirectory.  For any images based on this image, their software should go in their own directories to avoid issues with directory names that change as builds are updated.  For example:
 
@@ -53,7 +53,7 @@ Your situation: There's a new version of a dependency (e.g. boost) out that we n
 1. Update the corresponding file and directory names in download_pkg.sh
 1. Update the build date in Dockerfile (environment variable `P8DEPBUILD`)
 1. Test the build locally
-1. If the build works, push the changes to the Ladybug repo
+1. If the build works, push the changes to the CVMFS-dependencies repo
 1. On the Docker Hub page for the `project8/cvmfs-dependencies` image, go to Build Settings
 1. Update the date in the Docker Tag Name column of the second container build
 1. Trigger a rebuild of both containers (`latest` and `build-[date]`)
