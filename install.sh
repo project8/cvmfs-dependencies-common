@@ -41,6 +41,14 @@ echo "PYTHONPATH: $PYTHONPATH"
 echo "Library search path:"
 echo `ldconfig -v 2>/dev/null | grep -v ^$'\t'`
 
+# libpng
+echo "libpng"
+cd libpng
+./configure --enable-shared --prefix=${P8DEPBASEDIR} | tee config_log.txt
+make -j3                                             | tee make_log.txt
+make -j3 install                                     | tee make_install_log.txt
+cd ..
+
 # cmake
 echo "cmake"
 cd cmake/

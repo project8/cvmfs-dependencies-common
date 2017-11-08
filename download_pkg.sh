@@ -47,6 +47,10 @@ gunzip matio-1.5.2.tar.gz             # matio
 tar -xf matio-1.5.2.tar
 ln -s matio-1.5.2 matio
 
+gunzip libpng-1.6.34.tar.gz             # libpng
+tar -xf libpng-1.6.34.tar
+ln -s libpng-1.6.34 libpng
+
 gunzip root_v6.10.06.source.tar.gz    # root
 tar -xf root_v6.10.06.source.tar
 ln -s root-6.10.06 root
