@@ -98,6 +98,8 @@ mkdir -p my_build
 cd my_build
 cmake -D CMAKE_INSTALL_PREFIX:PATH=${P8DEPBASEDIR} -D CMAKE_INSTALL_BINDIR:PATH=${P8DEPBASEDIR}/bin -D CMAKE_INSTALL_LIBDIR:PATH=${P8DEPBASEDIR}/lib -D CMAKE_INSTALL_INCLUDEDIR:PATH=${P8DEPBASEDIR}/include -D gnuinstall=ON -D roofit=ON  -D builtin_gsl=ON ..  | tee config_log.txt
 make -j3                            | tee make_log.txt
+make -j3                            | tee make_log.txt
+make -j3                            | tee make_log.txt
 make -j3 install                    | tee make_install_log.txt
 cd ../..
 
