@@ -18,7 +18,7 @@ Project 8 software is installed in the `/cvmfs/hep.pnnl.gov/project8` directory.
 ```
 /cvmfs/hep.pnnl.gov/project8
    |
-   +- dependencies
+   +- dependencies-common
    |     |
    |     +- latest --> build-04-10-2017
    |     |

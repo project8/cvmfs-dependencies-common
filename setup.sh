@@ -1,6 +1,10 @@
+#!/bin/bash
+
+# specify the version of dependencies
+export P8DEPBUILD=build-2017-10-18
 
 export P8BASEDIR=/cvmfs/hep.pnnl.gov/project8
-export P8DEPBASEDIR=${P8BASEDIR}/dependencies/${P8DEPBUILD}
+export P8DEPBASEDIR=${P8BASEDIR}/dependencies-common/${P8DEPBUILD}
 
 # in the real CVMFS system, gcc is installed in the externals directory
 # in the docker system, gcc is installed via yum

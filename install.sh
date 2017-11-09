@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /cvmfs/hep.pnnl.gov/project8/dependencies/latest/setup.sh
+source /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/setup.sh
 
 cd ${P8DEPBASEDIR}/src/
 pwd
@@ -42,12 +42,12 @@ echo "Library search path:"
 echo `ldconfig -v 2>/dev/null | grep -v ^$'\t'`
 
 # libpng
-echo "libpng"
-cd libpng
-./configure --enable-shared --prefix=${P8DEPBASEDIR} | tee config_log.txt
-make -j3                                             | tee make_log.txt
-make -j3 install                                     | tee make_install_log.txt
-cd ..
+# echo "libpng"
+# cd libpng
+# ./configure --enable-shared --prefix=${P8DEPBASEDIR} | tee config_log.txt
+# make -j3                                             | tee make_log.txt
+# make -j3 install                                     | tee make_install_log.txt
+# cd ..
 
 # cmake
 echo "cmake"
@@ -59,12 +59,12 @@ make -j3 install                     | tee make_install_log.txt
 cd ..
 
 # Boost
-echo 'Boost'
-cd boost/
-./bootstrap.sh --prefix=${P8DEPBASEDIR} --with-libraries=date_time,filesystem,program_options,system,thread | tee bootstrap_log.txt
-./b2                             | tee b2_log.txt
-./b2 install                     | tee b2_install_log.txt
-cd ..
+# echo 'Boost'
+# cd boost/
+# ./bootstrap.sh --prefix=${P8DEPBASEDIR} --with-libraries=date_time,filesystem,program_options,system,thread | tee bootstrap_log.txt
+# ./b2                             | tee b2_log.txt
+# ./b2 install                     | tee b2_install_log.txt
+# cd ..
 
 # HDF5
 echo 'HDF5'
