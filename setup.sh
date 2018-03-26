@@ -8,7 +8,7 @@ export P8DEPBASEDIR=${P8BASEDIR}/dependencies-common/${P8DEPBUILD}
 
 # in the real CVMFS system, gcc is installed in the externals directory
 # in the docker system, gcc is installed via yum
-export GCCBASEDIR=/cvmfs/hep.pnnl.gov/externals/
+export GCCBASEDIR=/cvmfs/hep.pnnl.gov/externals/gcc/gcc_4_9_3
 export PATH=${GCCBASEDIR}/bin:${PATH}
 export INCLUDE_PATH=${GCCBASEDIR}/include:${INCLUDE_PATH}
 export LIBRARY_PATH=${GCCBASEDIR}/lib:${LIBRARY_PATH}
