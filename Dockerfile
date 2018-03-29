@@ -13,6 +13,7 @@ ADD ./dependency_urls.txt /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8D
 ADD ./download_pkg.sh /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/download_pkg.sh
 ADD ./install.sh /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/install.sh
 
-RUN source /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/setup.sh && \
+RUN source /opt/rh/devtoolset-3/enable && \
+    source /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/setup.sh && \
     /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/download_pkg.sh && \
     /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/install.sh
