@@ -23,6 +23,10 @@ cat wget_log.txt
 ls
 
 # unpack, unzip, detar or whatever...
+gunzip git-2.9.5.tar.gz               # git
+tar -xf git-2.9.5.tar
+ln -s git-2.9.5 git
+
 tar -xf Python-2.7.12.tgz             # python
 ln -s Python-2.7.12 python
 

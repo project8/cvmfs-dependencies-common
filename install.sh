@@ -16,6 +16,13 @@ pwd
 #
 ########################################################################
 
+# git
+echo "git"
+cd git/
+make prefix=${P8DEPBASEDIR} -j3     | tee make_log.txt
+make prefix=${P8DEPBASEDIR} install | tee make_install_log.txt
+cd ..
+
 # python2.7
 echo "python"
 cd python
