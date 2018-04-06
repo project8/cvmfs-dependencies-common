@@ -23,8 +23,8 @@ cat wget_log.txt
 ls
 
 # unpack, unzip, detar or whatever...
-tar -xf Python-2.7.12.tgz             # python
-ln -s Python-2.7.12 python
+tar -xf Python-3.6.4.tgz             # python
+ln -s Python-3.6.4 python
 
 gunzip cmake-3.4.3.tar.gz             # cmake
 tar -xf cmake-3.4.3.tar

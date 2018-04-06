@@ -16,7 +16,7 @@ pwd
 #
 ########################################################################
 
-# python2.7
+# python3.6.4
 echo "python"
 cd python
 ls
@@ -25,12 +25,12 @@ make -j3                                             | tee make_log.txt
 make -j3 install                                     | tee make_install_log.txt
 cd ..
 
-echo "Environment variables after installing python:"
+echo "Environment variables after installing python3:"
 env
-echo `which python`
-echo `python -V`
+echo `which python3`
+echo `python3 -V`
 echo `gcc --version`
-echo `python --version`
+echo `python3 --version`
 echo `which cc`
 echo `which g++`
 echo `which ld`
@@ -96,7 +96,10 @@ echo 'ROOT'
 cd root/
 mkdir -p my_build
 cd my_build
-cmake -D CMAKE_INSTALL_PREFIX:PATH=${P8DEPBASEDIR} -D CMAKE_INSTALL_BINDIR:PATH=${P8DEPBASEDIR}/bin -D CMAKE_INSTALL_LIBDIR:PATH=${P8DEPBASEDIR}/lib -D CMAKE_INSTALL_INCLUDEDIR:PATH=${P8DEPBASEDIR}/include -D gnuinstall=ON -D roofit=ON  -D builtin_gsl=ON ..  | tee config_log.txt
+cmake -D CMAKE_INSTALL_PREFIX:PATH=${P8DEPBASEDIR} -D CMAKE_INSTALL_BINDIR:PATH=${P8DEPBASEDIR}/bin \
+        -D CMAKE_INSTALL_LIBDIR:PATH=${P8DEPBASEDIR}/lib -D CMAKE_INSTALL_INCLUDEDIR:PATH=${P8DEPBASEDIR}/include \
+        -D PYTHON_EXECUTABLE=${P8DEPBASEDIR}/bin/python3 \
+        -D gnuinstall=ON -D roofit=ON  -D builtin_gsl=ON ..  | tee config_log.txt
 make -j3                            | tee make_log.txt
 make -j3                            | tee make_log.txt
 make -j3                            | tee make_log.txt
