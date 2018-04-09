@@ -1,6 +1,6 @@
 FROM pnnlhep/osg-compute-stable
 
-ENV P8DEPBUILD=build-2017-10-18
+ENV P8DEPBUILD=build-2018-04-09
 
 RUN yum -y --disableplugin=fastestmirror --enablerepo=extras install centos-release-SCL && \
     yum -y --disableplugin=fastestmirror --enablerepo=extras install devtoolset-3-gcc-c++ && \
