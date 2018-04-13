@@ -43,6 +43,17 @@ Fixes:
 Log
 ---
 
+Version: build-2018-04-12
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Release Date: Apr 12 2018
+'''''''''''''''''''''''''
+
+New Features:
+'''''''''''''
+
+* Adding Boost as a global dependency (needed by mermithid).
+
 Version: build-2018-04-09
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
