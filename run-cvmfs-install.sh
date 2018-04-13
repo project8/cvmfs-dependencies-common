@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # specify the version of dependencies
-export P8DEPBUILD=build-2018-04-09
+export P8DEPBUILD=build-2018-04-12
 
 # get the location of this script
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
