@@ -53,6 +53,7 @@ New Features:
 '''''''''''''
 
 * Adding Boost as a global dependency (needed by mermithid).
+* Using run-cvmfs-install in Docker.
 
 Version: build-2018-04-09
 ~~~~~~~~~~~~~~~~~~~~~~~~~
