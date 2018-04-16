@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /cvmfs/hep.pnnl.gov/project8/dependencies/latest/setup.sh
+source /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/setup.sh
 
 ########################################################################
 #
@@ -23,17 +23,12 @@ cat wget_log.txt
 ls
 
 # unpack, unzip, detar or whatever...
-tar -xf Python-2.7.12.tgz             # python
-ln -s Python-2.7.12 python
+tar -xf Python-3.6.4.tgz             # python
+ln -s Python-3.6.4 python
 
 gunzip cmake-3.4.3.tar.gz             # cmake
 tar -xf cmake-3.4.3.tar
 ln -s cmake-3.4.3 cmake
-
-mv download boost_1_59_0.tar.gz       # boost
-gunzip boost_1_59_0.tar.gz
-tar -xf boost_1_59_0.tar
-ln -s boost_1_59_0 boost
 
 gunzip hdf5-1.8.18.tar.gz             # hdf5
 tar -xf hdf5-1.8.18.tar
@@ -46,6 +41,11 @@ ln -s fftw-3.3.4 fftw
 gunzip matio-1.5.2.tar.gz             # matio
 tar -xf matio-1.5.2.tar
 ln -s matio-1.5.2 matio
+
+mv download boost_1_59_0.tar.gz       # boost
+gunzip boost_1_59_0.tar.gz
+tar -xf boost_1_59_0.tar
+ln -s boost_1_59_0 boost
 
 gunzip root_v6.10.06.source.tar.gz    # root
 tar -xf root_v6.10.06.source.tar
