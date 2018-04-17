@@ -14,5 +14,6 @@ ADD ./run-cvmfs-install.sh /tmp_install/run-cvmfs-install.sh
 
 RUN cd /tmp_install && \
     ls && \
+    source /opt/rh/devtoolset-3/enable && \
     source /tmp_install/run-cvmfs-install.sh && \
     rm -rf /tmp_install
