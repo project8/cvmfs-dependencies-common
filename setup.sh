@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # specify the version of dependencies
-export P8DEPBUILD=build-2018-04-17
+export P8DEPBUILD=build-2018-04-19
 
 export P8BASEDIR=/cvmfs/hep.pnnl.gov/project8
 export P8DEPBASEDIR=${P8BASEDIR}/dependencies-common/${P8DEPBUILD}
