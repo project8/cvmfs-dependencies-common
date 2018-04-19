@@ -19,6 +19,5 @@ cp ${SCRIPT_DIR}/download_pkg.sh /cvmfs/hep.pnnl.gov/project8/dependencies-commo
 cp ${SCRIPT_DIR}/install.sh /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/install.sh
 
 # run the download and install scripts
-#source /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/setup.sh
 /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/download_pkg.sh
 /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/install.sh

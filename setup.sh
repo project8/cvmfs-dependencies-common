@@ -25,8 +25,6 @@ export LD_LIBRARY_PATH=${P8DEPBASEDIR}/lib64:${LIBRARY_PATH}
 
 export LIBDIR=${LD_LIBRARY_PATH}:${LIBDIR}
 
-# source /opt/rh/devtoolset-3/enable
-
 export MANPATH=${P8DEPBASEDIR}/share/man/man1:${MANPATH}
 export PKG_CONFIG_PATH=${P8DEPBASEDIR}/lib/pkgconfig:${PKG_CONFIG_PATH}
 
