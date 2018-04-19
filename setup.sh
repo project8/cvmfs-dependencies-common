@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # specify the version of dependencies
-export P8DEPBUILD=build-2018-04-12
+export P8DEPBUILD=build-2018-04-19
 
 export P8BASEDIR=/cvmfs/hep.pnnl.gov/project8
 export P8DEPBASEDIR=${P8BASEDIR}/dependencies-common/${P8DEPBUILD}
@@ -24,8 +24,6 @@ export LD_LIBRARY_PATH=${P8DEPBASEDIR}/lib:${LIBRARY_PATH}
 export LD_LIBRARY_PATH=${P8DEPBASEDIR}/lib64:${LIBRARY_PATH}
 
 export LIBDIR=${LD_LIBRARY_PATH}:${LIBDIR}
-
-source /opt/rh/devtoolset-3/enable
 
 export MANPATH=${P8DEPBASEDIR}/share/man/man1:${MANPATH}
 export PKG_CONFIG_PATH=${P8DEPBASEDIR}/lib/pkgconfig:${PKG_CONFIG_PATH}
