@@ -43,6 +43,26 @@ Fixes:
 Log
 ---
 
+Version: build-2018-04-19
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Release Date: Apr 12 2018
+'''''''''''''''''''''''''
+
+New Features:
+'''''''''''''
+
+* Updated ROOT to v6.13.02
+* Use run-cvmfs-install.sh in the Docker build
+* Build date now only specified in setup.sh
+* Added ability to turn off builds for debugging purposes
+
+Fixes:
+''''''
+
+* Boost build directory set to P8DEPBASEDIR
+* Removed sourcing of devtools enable script in setup.sh
+
 Version: build-2018-04-12
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
