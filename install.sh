@@ -96,7 +96,7 @@ fi
 if [ "$install_boost" = true ] ; then
     echo 'Boost'
     cd boost/
-    ./bootstrap.sh --prefix=${P8DEPKATYDIDBASEDIR} --with-libraries=date_time,filesystem,program_options,system,thread | tee bootstrap_log.txt
+    ./bootstrap.sh --prefix=${P8DEPBASEDIR} --with-libraries=date_time,filesystem,program_options,system,thread | tee bootstrap_log.txt
     ./b2                             | tee b2_log.txt
     ./b2 install                     | tee b2_install_log.txt
     cd ..
