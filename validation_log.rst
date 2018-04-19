@@ -43,6 +43,22 @@ Fixes:
 Log
 ---
 
+Version: build-2018-04-19
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Release Date: Apr 19 2018
+'''''''''''''''''''''''''
+
+New Features:
+'''''''''''''
+
+* Update Root to 6.13.02
+
+Fixes:
+''''''
+
+* Path to Boost
+
 Version: build-2018-04-12
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
