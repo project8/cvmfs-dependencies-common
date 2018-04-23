@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/setup.sh
+# It's assumed that you've already sourced the relevant setup.sh
 
 # set some variables to control what gets built
 print_env_then_exit=false
@@ -149,7 +149,3 @@ if [ "$install_root" = true ] ; then
     make -j3 install                    | tee make_install_log.txt
     cd ../..
 fi
-
-# Clean up the source directory
-pwd
-rm -rf *

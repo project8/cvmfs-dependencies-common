@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/setup.sh
+# It's assumed that you've already sourced the relevant setup.sh
 
 ########################################################################
 #
