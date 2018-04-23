@@ -144,8 +144,6 @@ if [ "$install_root" = true ] ; then
             -D PYTHON_EXECUTABLE=${P8DEPBASEDIR}/bin/python3 \
             -D gnuinstall=ON -D roofit=ON  -D builtin_gsl=ON ..  | tee config_log.txt
     make -j3                            | tee make_log.txt
-    make -j3                            | tee make_log.txt
-    make -j3                            | tee make_log.txt
     make -j3 install                    | tee make_install_log.txt
     cd ../..
 fi
