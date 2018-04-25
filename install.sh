@@ -49,12 +49,11 @@ fi
 # python3.6.4
 if [ "$install_python" = true ] ; then
     echo "python"
-    cd python
+    cd ${P8DEPBASEDIR}/src/python
     ls
     ./configure --enable-shared --prefix=${P8DEPBASEDIR} | tee config_log.txt
     make -j3                                             | tee make_log.txt
     make -j3 install                                     | tee make_install_log.txt
-    cd ..
 
     echo "Environment variables after installing python3:"
     env
@@ -84,59 +83,54 @@ fi
 # cmake
 if [ "$install_cmake" = true ] ; then
     echo "cmake"
-    cd cmake/
+    cd ${P8DEPBASEDIR}/src/cmake
     ls
     ./configure --prefix=${P8DEPBASEDIR}      | tee config_log.txt
     make -j3                             | tee make_log.txt
     make -j3 install                     | tee make_install_log.txt
-    cd ..
 fi
 
 # Boost
 if [ "$install_boost" = true ] ; then
     echo 'Boost'
-    cd boost/
+    cd ${P8DEPBASEDIR}/src/boost
     ./bootstrap.sh --prefix=${P8DEPBASEDIR} --with-libraries=date_time,filesystem,program_options,system,thread,chrono | tee bootstrap_log.txt
     ./b2                             | tee b2_log.txt
     ./b2 install                     | tee b2_install_log.txt
-    cd ..
 fi
 
 # HDF5
 if [ "$install_hdf5" = true ] ; then
     echo 'HDF5'
-    cd hdf5/
+    cd ${P8DEPBASEDIR}/src/hdf5
     ./configure --prefix=${P8DEPBASEDIR} --enable-cxx --enable-shared  | tee config_log.txt
     make -j3                                                         | tee make_log.txt
     make -j3 test                                                    | tee make_test_log.txt
     make -j3 install                                                 | tee make_install_log.txt
-    cd ..
 fi
 
 # FFTW
 if [ "$install_fftw" = true ] ; then
     echo 'fftw'
-    cd fftw/
+    cd ${P8DEPBASEDIR}/src/fftw
     ./configure --prefix=${P8DEPBASEDIR} --enable-shared --enable-threads --with-pic  | tee config_log.txt
     make -j3                                                                          | tee make_log.txt
     make -j3 install                                                                  | tee make_install_log.txt
-    cd ..
 fi
 
 # MATIO
 if [ "$install_matio" = true ] ; then
     echo 'MATIO'
-    cd matio/
+    cd ${P8DEPBASEDIR}/src/matio
     ./configure --prefix=${P8DEPBASEDIR} --with-hdf5=${P8DEPBASEDIR}  | tee config_log.txt
     make -j3                                                          | tee make_log.txt
     make -j3 install                                                  | tee make_install_log.txt
-    cd ..
 fi
 
 # ROOT
 if [ "$install_root" = true ] ; then
     echo 'ROOT'
-    cd root/
+    cd ${P8DEPBASEDIR}/src/root
     mkdir -p my_build
     cd my_build
     cmake -D CMAKE_INSTALL_PREFIX:PATH=${P8DEPBASEDIR} -D CMAKE_INSTALL_BINDIR:PATH=${P8DEPBASEDIR}/bin \
@@ -145,5 +139,4 @@ if [ "$install_root" = true ] ; then
             -D gnuinstall=ON -D roofit=ON  -D builtin_gsl=ON ..  | tee config_log.txt
     make -j3                            | tee make_log.txt
     make -j3 install                    | tee make_install_log.txt
-    cd ../..
 fi

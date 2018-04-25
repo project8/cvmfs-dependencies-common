@@ -10,8 +10,8 @@
 
 # get into the parent directory for all the source code and build proucts
 cd ${P8DEPBASEDIR}
-mkdir src
-cd src/
+mkdir -p ${P8DEPBASEDIR}/src
+cd ${P8DEPBASEDIR}/src
 pwd
 
 
