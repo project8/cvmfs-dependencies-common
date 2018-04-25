@@ -36,6 +36,8 @@ Project 8 software is installed in the `/cvmfs/hep.pnnl.gov/project8` directory.
 
 This repo can either be used to build a Docker image using the included Dockerfile, or installed directly in the actual CVMFS system by running the `run-cvmfs-install.sh` script.  Instructions for both builds are below.
 
+Cleanup of the source directory is performed by the cleanup.sh script, which is run from the Dockerfile so that it is not automatically run when doing an install on the actual CVMFS system.  It can, of course, be run manually on that system if so desired.
+
 ## Scripts
 
 * download_pkg.sh: Downloads dependency source packages and unpacks.

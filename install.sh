@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/setup.sh
+# It's assumed that you've already sourced the relevant setup.sh
 
 # set some variables to control what gets built
 print_env_then_exit=false
@@ -96,7 +96,7 @@ fi
 if [ "$install_boost" = true ] ; then
     echo 'Boost'
     cd boost/
-    ./bootstrap.sh --prefix=${P8DEPBASEDIR} --with-libraries=date_time,filesystem,program_options,system,thread | tee bootstrap_log.txt
+    ./bootstrap.sh --prefix=${P8DEPBASEDIR} --with-libraries=date_time,filesystem,program_options,system,thread,chrono | tee bootstrap_log.txt
     ./b2                             | tee b2_log.txt
     ./b2 install                     | tee b2_install_log.txt
     cd ..
@@ -144,12 +144,6 @@ if [ "$install_root" = true ] ; then
             -D PYTHON_EXECUTABLE=${P8DEPBASEDIR}/bin/python3 \
             -D gnuinstall=ON -D roofit=ON  -D builtin_gsl=ON ..  | tee config_log.txt
     make -j3                            | tee make_log.txt
-    make -j3                            | tee make_log.txt
-    make -j3                            | tee make_log.txt
     make -j3 install                    | tee make_install_log.txt
     cd ../..
 fi
-
-# Clean up the source directory
-pwd
-rm -rf *
