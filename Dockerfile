@@ -1,4 +1,4 @@
-FROM centos:6.10
+FROM centos:6.10 as gcc-base
 
 # get gcc from package manager
 RUN yum -y install centos-release-scl-rh &&\
@@ -8,6 +8,10 @@ COPY ./scl_enable /usr/local/src/scl_enable
 ENV BASH_ENV=/usr/local/src/scl_enable \
     ENV=/usr/local/src/scl_enable \
     PROMPT_COMMAND=". /usr/local/src/scl_enable"
+
+
+##########################
+FROM gcc-base as common
 
 RUN mkdir -p /tmp_install
 
@@ -42,44 +46,49 @@ RUN source /usr/local/src/scl_enable &&\
     make install &&\
     /bin/true
 
-# cmake
-RUN source /usr/local/src/scl_enable &&\
-    cd /tmp_install &&\
-    wget http://www.cmake.org/files/v3.4/cmake-3.4.3.tar.gz &&\
-    tar -xvzf cmake-3.4.3.tar.gz &&\
-    /bin/true
+## cmake
+#RUN source /usr/local/src/scl_enable &&\
+#    cd /tmp_install &&\
+#    wget http://www.cmake.org/files/v3.4/cmake-3.4.3.tar.gz &&\
+#    tar -xvzf cmake-3.4.3.tar.gz &&\
+#    /bin/true
+#
+## hdf5
+#RUN source /usr/local/src/scl_enable &&\
+#    cd /tmp_install &&\
+#    wget https://support.hdfgroup.org/ftp/HDF5/prev-releases/hdf5-1.8/hdf5-1.8.18/src/hdf5-1.8.18.tar.gz &&\
+#    tar -xvzf hdf5-1.8.18.tar.gz &&\
+#    /bin/true
+#
+## fftw3
+#RUN source /usr/local/src/scl_enable &&\
+#    cd /tmp_install &&\
+#    wget http://www.fftw.org/fftw-3.3.4.tar.gz &&\
+#    tar -xvzf fftw-3.3.4.tar.gz &&\
+#    /bin/true
+#
+## matio
+#RUN source /usr/local/src/scl_enable &&\
+#    cd /tmp_install &&\
+#    wget http://sourceforge.net/projects/matio/files/matio/1.5.2/matio-1.5.2.tar.gz &&\
+#    tar -xvzf matio-1.5.2.tar.gz &&\
+#    /bin/true
+#
+## boost
+#RUN source /usr/local/src/scl_enable &&\
+#    cd /tmp_install &&\
+#    wget -O boost-1.59.0.tgz http://sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz/download &&\
+#    tar -xvzf boost-1.59.0.tgz &&\
+#    /bin/true
+#
+## root
+#RUN source /usr/local/src/scl_enable &&\
+#    cd /tmp_install &&\
+#    wget https://root.cern.ch/download/root_v6.13.02.source.tar.gz &&\
+#    tar -xvzf root_v6.13.02.source.tar.gz &&\
+#    /bin/true
 
-# hdf5
-RUN source /usr/local/src/scl_enable &&\
-    cd /tmp_install &&\
-    wget https://support.hdfgroup.org/ftp/HDF5/prev-releases/hdf5-1.8/hdf5-1.8.18/src/hdf5-1.8.18.tar.gz &&\
-    tar -xvzf hdf5-1.8.18.tar.gz &&\
-    /bin/true
 
-# fftw3
-RUN source /usr/local/src/scl_enable &&\
-    cd /tmp_install &&\
-    wget http://www.fftw.org/fftw-3.3.4.tar.gz &&\
-    tar -xvzf fftw-3.3.4.tar.gz &&\
-    /bin/true
-
-# matio
-RUN source /usr/local/src/scl_enable &&\
-    cd /tmp_install &&\
-    wget http://sourceforge.net/projects/matio/files/matio/1.5.2/matio-1.5.2.tar.gz &&\
-    tar -xvzf matio-1.5.2.tar.gz &&\
-    /bin/true
-
-# boost
-RUN source /usr/local/src/scl_enable &&\
-    cd /tmp_install &&\
-    wget -O boost-1.59.0.tgz http://sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz/download &&\
-    tar -xvzf boost-1.59.0.tgz &&\
-    /bin/true
-
-# root
-RUN source /usr/local/src/scl_enable &&\
-    cd /tmp_install &&\
-    wget https://root.cern.ch/download/root_v6.13.02.source.tar.gz &&\
-    tar -xvzf root_v6.13.02.source.tar.gz &&\
-    /bin/true
+########################
+FROM gcc-base
+copy --from=common /usr/local/p8/common-2018-11-01 /usr/local/p8/common-2018-11-01
