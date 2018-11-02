@@ -28,11 +28,18 @@ RUN /bin/true &&\
     #rm -rf /tmp_install &&\
     /bin/true
 
+ENV BUILD_PREFIX=/usr/local/p8/common-2018-11-01
+RUN mkdir -p $BUILD_PREFIX && \
+    ln -s $BUILD_PREFIX $BUILD_PREFIX/../common
+
 # Python
 RUN source /usr/local/src/scl_enable &&\
     cd /tmp_install &&\
     wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz &&\
     tar -xvzf Python-3.6.4.tgz &&\
+    cd Python-3.6.4 &&\
+    ./configure --enable-shared --prefix=$BUILD_PREFIX &&\
+    make install &&\
     /bin/true
 
 # cmake
